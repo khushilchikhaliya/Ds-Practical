@@ -7,6 +7,8 @@ struct Node
     Node *next;
 };
 
+Node* head = NULL;
+
 // Insert node at beginning
 void insertBeginning(Node *&head, int value)
 {
