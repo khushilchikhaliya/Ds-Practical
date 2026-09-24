@@ -9,6 +9,14 @@ struct Node
 
 Node *head = NULL;
 
+// Insert at beginning
+void insertBeginning(int val)
+{
+    Node *n = new Node{val, NULL};
+    n->next = head;
+    head = n;
+}
+
 // Insert at end (helper, just to build the list for testing)
 void insertEnd(int val)
 {
@@ -21,6 +29,25 @@ void insertEnd(int val)
     Node *temp = head;
     while (temp->next != NULL)
         temp = temp->next;
+    temp->next = n;
+}
+
+// Insert after a given node (by value)
+void insertAfterGivenNode(int key, int val)
+{
+    Node *temp = head;
+
+    while (temp != NULL && temp->data != key)
+        temp = temp->next;
+
+    if (temp == NULL)
+    {
+        cout << "Node not found\n";
+        return;
+    }
+
+    Node *n = new Node{val, NULL};
+    n->next = temp->next;
     temp->next = n;
 }
 
